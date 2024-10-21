@@ -1,0 +1,142 @@
+
+body {
+    background-color: rgb(52, 58, 64);
+}
+
+.navbar-border {
+    border-bottom: 3px solid #d1aaaa;
+}
+
+
+.navbar-brand {
+    color: red !important; 
+}
+
+.navbar-nav .nav-link[href="login.html"],
+.navbar-nav .nav-link[href="signup.html"] {
+    color: #fff !important;
+}
+
+
+.game-card {
+    margin-bottom: 20px;
+    flex: 0 0 calc(33.33% - 20px);
+    border: none;
+}
+
+.game-container {
+    display: flex;
+    flex-wrap: nowrap; 
+    overflow-x: auto;
+    gap: 20px;
+    padding: 20px;
+}
+
+.game-container::-webkit-scrollbar {
+    height: 12px;
+    width: 12px;
+}
+
+.game-container::-webkit-scrollbar-thumb {
+    background: #6c757d;
+    border-radius: 10px;
+    border: 3px solid rgba(0, 0, 0, 0);
+    background-clip: padding-box;
+}
+
+.game-container::-webkit-scrollbar-thumb:hover {
+    background: #495057;
+}
+
+.game-container::-webkit-scrollbar-track {
+    background: #343a40;
+    border-radius: 10px;
+}
+
+.card-price {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Popup Modal Styles */
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+    position: relative;
+}
+
+.popup-description {
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.popup img {
+    max-height: 200px;
+    width: auto;
+    display: block;
+    margin: 0 auto 15px auto;
+}
+
+.popup-price {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Scroll Bar Styles */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #2C3E50, #FD746C);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, #FD746C, #2C3E50);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:active {
+    background: #FD746C;
+    border-radius: 10px;
+}

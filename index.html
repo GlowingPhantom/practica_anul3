@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameHeaven</title>
+    <link rel="icon" type="image/x-icon" href="/images/icons8-game-maker-gradient-16.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-border">
+        <a class="navbar-brand" href="#">GameHeaven</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item mr-9">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="login.html">Login</a>
+                </li>
+                <li class="nav-item ml-9">
+                    <a class="nav-link" href="signup.html">Sign Up</a>
+                </li>
+            </ul>
+            <form class="form-inline ml-9">
+                <input id="searchInput" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" onkeyup="searchGames()">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <div class="container mt-3">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="genreSelect">Sort by Genre</label>
+                    </div>
+                    <select class="custom-select" id="genreSelect">
+                        <option value="all">All Genres</option>
+                        <option value="action">Action</option>
+                        <option value="horror">Horror</option>
+                        <option value="fighting">Fighting</option>
+                        <option value="adventure">Adventure</option>
+                        <option value="shooter">Shooter</option>
+                        <option value="tactical">Tactical</option>
+                        <option value="sci-fi">Sci-Fi</option>
+                        <option value="simulation">Simulation</option>
+                        <option value="rpg">RPG</option>
+                        <option value="indie">Indie</option>
+                        <option value="strategy">Strategy</option>
+                        <!-- Aici adaugi alte genuri , dacă mai e nevoie -->
+                    </select>
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button" onclick="sortGames()">Sort</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Game Cards -->
+    <div class="container mt-5">
+        <div class="row" id="gameContainer">
+            <div class="col-md-4 mb-4">
+                <div class="game-card card" data-genre="action,adventure" onclick="openPopup('Ghost of Tsushima', 'images/game1.jpg', 'In Ghost of Tsushima, the player can traverse the open world of Tsushima Island on horseback. Ghost of Tsushima is an action-adventure video game played from a third-person perspective', '$15.99', 'Action, Adventure')">
+                    <img src="images/game1.jpg" class="card-img-top" alt="Game Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Ghost of Tsushima</h5>
+                        <p class="card-genre">Genres: Action, Adventure</p>
+                        <p class="card-price">$15.99</p>
+                        <a href="#" class="btn btn-success">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="game-card card"  data-genre="horror,simulation" onclick="openPopup('Buckshot Roulette', 'images/game2.jpg', 'The game involves the player playing a modified game of Russian roulette in an underground nightclub with a mysterious entity known as the Dealer', '$2.49', 'Horror, Simulation')">
+                    <img src="images/game2.jpg" class="card-img-top" alt="Game Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Buckshot Roulette</h5>
+                        <p class="card-genre">Genres: Horror, Simulation</p>
+                        <p class="card-price">$2.49</p>
+                        <a href="#" class="btn btn-success">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="game-card card"  data-genre="shooter,tactical" onclick="openPopup('Ready or Not', 'images/game3.jpg', 'Ready or Not is an intense, tactical, first-person shooter that depicts a modern-day world in which SWAT police units are called to defuse hostile and confronting situations.', '$12.55', 'Shooter, Tactical')">
+                    <img src="images/game3.jpg" class="card-img-top" alt="Game Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Ready or Not</h5>
+                        <p class="card-genre">Genres: Shooter, Tactical</p>
+                        <p class="card-price">$12.55</p>
+                        <a href="#" class="btn btn-success">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="game-card card" data-genre="adventure, sci-fi" onclick="openPopup('Serum', 'images/game4.jpg', 'Serum is an interactive text adventure game that takes you on a thrilling sci-fi journey. With its engaging Choose Your Own Adventure-style gameplay, Serum immerses you in a unique sci-fi world where you play as one of the few humans who can pilot a ship between planets.', '$35.99', 'Adventure, Sci-Fi')">
+                    <img src="images/game4.jpg" class="card-img-top" alt="Game Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Serum</h5>
+                        <p class="card-genre">Genres: Adventure, Sci-Fi</p>
+                        <p class="card-price">$35.99</p>
+                        <a href="#" class="btn btn-success">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="game-card card" data-genre="action,rpg" onclick="openPopup('Dark Souls III Deluxe', 'images/game5.jpg', 'The Deluxe Edition includes the base game as well as the Season Pass. The DARK SOULS™ III Deluxe Edition includes the full game & the Season Pass. Expand your experience with the Season Pass featuring new maps, bosses, enemies and additional weapon and armor sets.', '$14', 'Action, RPG')">
+                    <img src="images/game5.jpg" class="card-img-top" alt="Game Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Dark Souls III Deluxe</h5>
+                        <p class="card-genre">Genres: Action, RPG</p>
+                        <p class="card-price">$14</p>
+                        <a href="#" class="btn btn-success">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="game-card card" data-genre="action,fighting" onclick="openPopup('Tekken 8', 'images/game6.jpg', 'TEKKEN 8 continues the tragic saga of the Mishima bloodline and its world-shaking father-and-son grudge matches. After defeating his father, Heihachi Mishima, Kazuya continues his conquest for global domination, using the forces of G Corporation to wage war on the world.', '$11.99', 'Action, Fighting')">
+                    <img src="images/game6.jpg" class="card-img-top" alt="Game Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Tekken 8</h5>
+                        <p class="card-genre">Genres: Action, Fighting</p>
+                        <p class="card-price">$11.99</p>
+                        <a href="#" class="btn btn-success">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="game-card card" data-genre="survival,rpg" onclick="openPopup('Project Zomboid', 'images/game7.jpg', 'Project Zomboid is an example of a survival-horror, role-playing game, developed by an independent studio known as The Indie Stone.', '$10.99', 'Survival, RPG')">
+                    <img src="images/game7.jpg" class="card-img-top" alt="Game Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Project Zomboid</h5>
+                        <p class="card-genre">Genres: Survival, RPG</p>
+                        <p class="card-price">$10.99</p>
+                        <a href="#" class="btn btn-success">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="game-card card" data-genre="rpg,adventure" onclick="openPopup('Elden Ring', 'images/game8.jpg', 'Shadow of the Erdtree takes players beyond the Lands Between to explore the Land of Shadow, a completely new world in Elden Ring.', '$24.99', 'RPG, Adventure')">
+                    <img src="images/game8.jpg" class="card-img-top" alt="Game Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Elden Ring</h5>
+                        <p class="card-genre">Genres: RPG, Adventure</p>
+                        <p class="card-price">$24.99</p>
+                        <a href="#" class="btn btn-success">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="game-card card" data-genre="simulation,rpg" onclick="openPopup('Prison Architect 2', 'images/game9.jpg', 'Welcome Architects! Design and develop your own personalized penitentiary in Prison Architect 2. The classic prison-builder has broken out into 3D, and it’s up to you to contain it! The Worlds Greatest Prison Management.', '$9.99', 'Simulation, Strategy')">
+                    <img src="images/game9.jpg" class="card-img-top" alt="Game Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Prison Architect 2</h5>
+                        <p class="card-genre">Genres: Simulation, RPG</p>
+                        <p class="card-price">$9.99</p>
+                        <a href="#" class="btn btn-success">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="game-card card" data-genre="action,horror" onclick="openPopup('Killing Floor 2', 'images/game10.jpg', 'In KILLING FLOOR 2 players descend into continental Europe where the outbreak caused by Horzine Biotech’s failed experiment has quickly spread and gained unstoppable momentum', '$15.99', 'Action, Horror')">
+                    <img src="images/game10.jpg" class="card-img-top" alt="Game Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Killing Floor 2</h5>
+                        <p class="card-genre">Genres: Action, Horror</p>
+                        <p class="card-price">$15.99</p>
+                        <a href="#" class="btn btn-success">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="game-card card" data-genre="rpg,adventure" onclick="openPopup('Fallout 76', 'images/game11.jpg', 'Fallout 76 is a prequel to other games in the Fallout series, developed by Bethesda Softworks. It will be the first online multiplayer title in Bethesda Game Studios’ offer. Even though the game is the ninth one in the franchise, its storyline takes place well before the events of even the first Fallout game, just after the first vaults started opening.', '$13.99', 'RPG, Adventure')">
+                    <img src="images/game11.jpg" class="card-img-top" alt="Game Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Fallout 76</h5>
+                        <p class="card-genre">Genres: RPG, Adventure</p>
+                        <p class="card-price">$13.99</p>
+                        <a href="#" class="btn btn-success">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="game-card card" data-genre="adventure,indie" onclick="openPopup('Little Kitty, Big City', 'images/game12.jpg', 'Little Kitty, Big City is an adventure video game and debut release from American indie developer Double Dagger Studio. The player assumes the role of a cat lost within a city, with the main objective of making their way back home.', '$33.40', 'Adventure, Indie')">
+                    <img src="images/game12.jpg" class="card-img-top" alt="Game Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Little Kitty, Big City</h5>
+                        <p class="card-genre">Genres: Adventure, Indie</p>
+                        <p class="card-price">$33.40</p>
+                        <a href="#" class="btn btn-success">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup Modal -->
+<div class="modal fade" id="popupModal" tabindex="-1" role="dialog" aria-labelledby="popupModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">  
+                <h5 class="modal-title" id="popupModalLabel"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <img id="popupImage" src="" alt="Game Image" class="img-fluid">
+                <p id="popupDescription"></p>
+                <p id="popupPrice" class="font-weight-bold"></p>
+                <p id="popupGenre"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-success">Buy Now</button>
+            </div>
+        </div>
+    </div>
+</div>
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
